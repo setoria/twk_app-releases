@@ -8,7 +8,7 @@
 
 TWK ist eine Software zur Bemessung von Schutzbauten nach TWK 2017.
 
-- **Entwickler:** LoCaStatik GmbH
+- **Entwickler:** Ingware AG
 - **Version:** Siehe [Releases](../../releases)
 - **Quellcode:** [setoria/twk_2025](https://github.com/setoria/twk_2025) (privat)
 
