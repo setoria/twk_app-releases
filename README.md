@@ -48,4 +48,4 @@ Copyright © 2026 TWK Software / Ingware AG
 
 ---
 
-**Hinweis:** Dieses Repository enthält ausschließlich veröffentlichte Release-Dateien. Der Quellcode ist in einem privaten Repository verfügbar.
+**Hinweis:** Dieses Repository enthält ausschliesslich veröffentlichte Release-Dateien. Der Quellcode ist in einem privaten Repository verfügbar.
