@@ -1,136 +1,186 @@
 # Bemessung
 
-Im Tab **„Bemessung"** wird die Bewehrung für Biegung und Schub entworfen und geprüft.
+Im Tab **„Bemessung"** wird die Bewehrung für Biegung und Schub festgelegt, geprüft und bei Bedarf automatisch optimiert.
 
 ---
 
-## Allgemeine Bewehrungsparameter
+## Einstieg und Arbeitsweise
 
-Vor der eigentlichen Bemessung sollten die **Allgemeinen Bewehrungsparameter** geprüft werden. Diese werden über das **Zahnrad-Icon** (⚙) oben rechts → **„Bewehrungsparameter"** geöffnet.
+Beim Einstieg in den Tab erscheint zuerst das Fenster **„Allgemeine Bewehrungsparameter"**.  
+Hier werden die globalen Vorgaben für die Bemessung festgelegt.
+Auf dieser Basis kann die Bewehrung anschliessend mit einem Klick optimiert und direkt übernommen werden. Beim Optimieren wählt die TWK-App je Bereich bzw. Bauteil automatisch die kleinste passende Bewehrung aus den freigegebenen Kombinationen, aktualisiert die Berechnungen und bewertet die Nachweise neu.
 
 ![Screenshot: Allgemeine Bewehrungsparameter](screenshots/06_allgemeine_bewehrungsparameter.png)
 
-Der Dialog enthält getrennte Einstellungen für **Decke/Fundamentplatte** und **Wände**:
+Der Dialog enthält getrennte Bereiche für **Decke/Fundamentplatte** und **Wände**:
 
-| Parameter | Beschreibung |
-|---|---|
-| **Stabdurchmesser Ø [mm]** | Durchmesser der Bewehrungsstäbe (Dropdown, z. B. 10 mm) |
-| **Stababstand s [cm]** | Abstand zwischen den Stäben (z. B. 15.0 cm) |
-| **Grösstkorn Durchmesser D_max [mm]** | Maximaler Korndurchmesser des Betons (z. B. 32 mm) |
-| **Betondeckung 1. Lage c_nom [mm]** | Betondeckung der äusseren Bewehrungslage (z. B. 30 mm) |
-| **Betondeckung 4. Lage c_nom [mm]** | Betondeckung der inneren Bewehrungslage (z. B. 30 mm) |
-| **Orientierung der Bewehrung** | 1. und 4. Lage in x-Richtung oder y-Richtung |
-| **Synchrone Anschlusseisen** | Checkbox für synchrone Anschlussbewehrung |
+- Grösstkorn-Durchmesser `D_max`
+- Betondeckung `c_nom` (1. und 4. Lage)
+- Orientierung der Bewehrung
+- Synchrone Anschlusseisen
+- Auswahl der zulässigen Kombinationen für Biege- und Schubbewehrung
 
-> Diese Parameter gelten für **alle Bauteile**. Für bauteilspezifische Anpassungen gibt es zusätzlich die **Bauteil-Bewehrungsparameter** (ebenfalls über das Zahnrad-Icon).
+Diese Vorgaben gelten global; bauteilspezifische Anpassungen erfolgen später über **Bauteil-Bewehrungsparameter**.
+
+Typischer Ablauf im Tab:
+
+1. Allgemeine Parameter prüfen oder anpassen
+2. Zwischen Biegebemessung und Schubbemessung wechseln
+3. Bereiche in Skizze/Liste bearbeiten und Ergebnisse unten kontrollieren
+4. Nachweise beurteilen und bei Bedarf kommentiert akzeptieren
 
 ---
 
-## Umschalten: Biegung / Schub
+## Umschalten und Statusanzeige
 
-Oben kann zwischen **Biegebemessung** und **Schubbemessung** umgeschaltet werden.
+Oben wird zwischen **Biegebemessung** und **Schubbemessung** umgeschaltet.  
+Bei der Biegebemessung kann zusätzlich zwischen **Lage 1 bis Lage 4** gewechselt werden.
 
-Über den **Segmented Control** oben wird gewählt:
+Die Statusfarben werden durchgängig verwendet:
 
-- **Biegebemessung** – Bewehrung gegen Biegemomente
-- **Schubbemessung** – Bewehrung gegen Schubkräfte
-
-Die Buttons zeigen farbig den **Nachweissstatus** an:
 - 🟢 Grün = Nachweis erfüllt
-- 🟠 Orange = Nicht erfüllt, aber akzeptiert
-- 🔴 Rot = Nicht erfüllt
+- 🟠 Orange = Nachweis nicht erfüllt, aber trotzdem akzeptiert
+- 🔴 Rot = Nachweis nicht erfüllt
+
+![Screenshot: Nachweis-Status Farben](screenshots/06_nachweis_status_farben.png)
 
 ---
 
 ## Biegebemessung
 
-### Bewehrungslagen (Lage 1–4)
+### Überblick
 
-Bei der Biegebemessung kann zwischen **4 Bewehrungslagen** gewechselt werden (Lage 1, Lage 2, Lage 3, Lage 4). Jede Lage hat eine eigene Bewehrungsskizze und -liste.
+Die Biegebemessung ist in einen oberen Bearbeitungsbereich und einen unteren Ergebnisbereich gegliedert.
 
-### Oberer Bereich
+![Screenshot: Biegebemessung Überblick](screenshots/06_biegung_ueberblick.png)
 
-| Links: Bewehrungsskizze | Rechts: Bewehrungsliste |
-|---|---|
-| 2D-Draufsicht des Bauteils mit farbigen Bewehrungsflächen | Scrollbare Liste aller Bewehrungspositionen |
+### Oberer Bereich: Skizze und Liste
 
-**Bewehrungsskizze:**
-- Zeigt das Bauteil als Polygon mit farbig dargestellten Bewehrungsbereichen.
-- Interaktiv: Auswählen, Geometrie bearbeiten, Bemassung hinzufügen.
-- Farbskala rechts zeigt die Bewehrungswerte.
+- **Links:** interaktive Bewehrungsskizze des ausgewählten Bauteils
+- **Rechts:** Bewehrungsliste mit Positionen und Kennwerten
 
-**Bewehrungsliste:**
-- Jeder Eintrag zeigt: Position, Durchmesser (Ø) und Abstand (z. B. „Pos 1: Ø12/150").
-- Aktionen pro Eintrag: Bearbeiten, Info, Löschen.
-- Hover über einen Eintrag markiert den Bereich in der Skizze (und umgekehrt).
+![Screenshot: Biegung Skizze und Liste](screenshots/06_biegung_skizze_liste.png)
 
-![Screenshot: Bewehrungsskizze und -liste](screenshots/06_biegung_skizze.png)
-<!-- TODO: Screenshot einfügen -->
+### Unterer Bereich: Ergebnisansichten
 
-### Unterer Bereich: 3D-Visualisierungen
+Im unteren Bereich werden drei Ansichten angezeigt:
 
-Drei Ansichten nebeneinander:
+1. Linke Ergebnisansicht (frei umschaltbar)
+2. Mittlere Ergebnisansicht (frei umschaltbar)
+3. Kommentar- und Nachweisbereich
 
-| Ansicht 1 | Ansicht 2 | Ansicht 3 |
-|---|---|---|
-| Biegemoment M_Ed [kNm/m] | Ausnutzung | Kommentar & Status |
+Über die Menüs **„Ansicht wechseln"** können linke und mittlere Ergebnisansicht unabhängig voneinander eingestellt werden.
 
-Über das **Dropdown-Menü (⋮)** kann die Darstellung umgeschaltet werden:
-- Biegemoment M_Ed [kNm/m]
-- Biegewiderstand M_Rd [kNm/m]
-- Ausnutzung
-- Mindestbewehrung [cm²/m]
+In der **Biegebemessung** stehen pro Anzeige folgende Darstellungen zur Verfügung:
 
-**Kommentar-Bereich:**
-- Zeigt den Nachweisstatus: **„Nachweis erfüllt"** (grün) oder **„Nachweis nicht erfüllt"** (rot).
-- Falls der Nachweis nicht erfüllt ist, kann er mit **„Nachweis trotzdem akzeptieren"** akzeptiert werden – ein Kommentar ist dann **Pflicht**.
+- `M_Ed` (Biegemoment)
+- `M_Rd` (Biegewiderstand)
+- `Ausnutzung`
+- `Mindestbewehrung`
+- `A_s,erf` (erforderliche Bewehrung)
+
+![Screenshot: Biegung 3D Modi](screenshots/06_biegung_3d_modi.png)
+
+Für Ausnutzungsdarstellungen kann die Skala zwischen **3-farbig** und **2-farbig** umgeschaltet werden.
+
+![Screenshot: Ausnutzung Skala Toggle](screenshots/06_ausnutzung_skala_toggle.png)
+
+### Kommentar und Nachweis
+
+Wenn ein Nachweis nicht erfüllt ist, kann er über **„Nachweis trotzdem akzeptieren"** freigegeben werden.  
+In diesem Fall ist ein Kommentar verpflichtend.
+Solange der Pflichtkommentar fehlt, sind Wechsel- und Auswahlaktionen im Tab eingeschränkt.
+
+![Screenshot: Biegung Kommentar und Nachweis](screenshots/06_biegung_kommentar_nachweis.png)
+![Screenshot: Kommentar Pflicht Blockierung](screenshots/06_kommentar_pflicht_blockierung.png)
 
 ---
 
 ## Schubbemessung
 
-Der Aufbau ist analog zur Biegebemessung:
+Der Aufbau folgt derselben Logik wie bei der Biegebemessung:
 
-### Oberer Bereich
+- oberer Bereich mit Skizze und Liste
+- unterer Bereich mit Ergebnisansichten und Kommentarstatus
 
-| Links: Schubbewehrungsskizze | Rechts: Schubbewehrungsliste |
-|---|---|
-| 2D-Draufsicht mit Schubbewehrungsbereichen | Liste mit Position, Ø, Abstand parallel/normal |
+![Screenshot: Schubbemessung Überblick](screenshots/06_schub_ueberblick.png)
 
-Jeder Eintrag zeigt z. B.: „Pos 1: Ø12/150/200" (Durchmesser / Abstand parallel / Abstand normal).
+### Oberer Bereich: Skizze und Liste
 
-### Unterer Bereich: 3D-Visualisierungen
+Die Schubbewehrung wird in der Skizze bearbeitet und in der Liste positionsweise geführt.
 
-| Ansicht 1 | Ansicht 2 | Ansicht 3 |
-|---|---|---|
-| Schubkraft V_Ed [kN/m] | Ausnutzung | Kommentar & Status |
+![Screenshot: Schub Skizze und Liste](screenshots/06_schub_skizze_liste.png)
 
-Umschaltbar auf:
-- Schubkraft V_Ed [kN/m]
-- Schubwiderstand V_Rd [kN/m]
-- Ausnutzung
+### Unterer Bereich: Ergebnisansichten
 
-![Screenshot: Schubbemessung](screenshots/06_schub.png)
-<!-- TODO: Screenshot einfügen -->
+Auch in der Schubbemessung lassen sich linke und mittlere Ergebnisansicht unabhängig über das jeweilige Menü umschalten.
+
+In der **Schubbemessung** stehen folgende Darstellungen zur Verfügung:
+
+- **Linke Anzeige:** `V_Ed`, `V_Rd`, `Ausnutzung`, `A_s,erf`
+- **Mittlere Anzeige:** `V_Ed`, `V_Rd`, `Ausnutzung`
+
+![Screenshot: Schub 3D Modi](screenshots/06_schub_3d_modi.png)
 
 ---
 
-## Werkzeuge (Toolbar)
+## Werkzeuge und Bedienung
 
-| Werkzeug | Funktion |
-|---|---|
-| **Selektieren** | Bewehrungsbereiche auswählen |
-| **Geometrie ändern** | Eckpunkte der Bewehrungsbereiche verschieben |
-| **Bemassung** | Masslinien in der Skizze hinzufügen |
-| **+ (Plus-Button)** | Neue Bewehrung hinzufügen (Zulage bzw. Schubbewehrung) |
+Die vertikale Toolbar enthält die Bearbeitungsmodi und Aktionen:
+
+- **Selektieren**
+- **Geometrie ändern**
+- **Bemassung**
+- **+** (Biegung: Zulagen hinzufügen / Schub: Schubbewehrung hinzufügen)
+- **Rückgängig**
+- **Wiederholen**
+
+![Screenshot: Toolbar und Undo/Redo](screenshots/06_toolbar_undo_redo.png)
+
+### Modus „Selektieren"
+
+- Bewehrungsbereich anklicken, um die zugehörigen Parameter zu öffnen.
+- Markierte Bereiche werden in Skizze und Liste synchron hervorgehoben.
+
+### Modus „Geometrie ändern"
+
+- Bewehrungsbereich auswählen, dann Eckpunkte (Knoten) mit der Maus verschieben.
+- **Shift** beim Ziehen hält die Bewegung orthogonal (horizontal/vertikal).
+- Mehrere Knoten können gemeinsam verschoben werden: zusätzliche Knoten mit **Ctrl** auswählen und dann als Gruppe ziehen.
+- Für eine parallele Kantenverschiebung können zwei benachbarte Knoten gemeinsam markiert und zusammen verschoben werden.
+
+### Modus „Bemassung"
+
+- Zwei Punkte in der Skizze wählen, um eine Bemassungslinie zu erstellen.
+- **Shift** hält die Bemassung orthogonal.
+
+### „+“ Bewehrung hinzufügen (Zulage / Schubbewehrung)
+
+Beim Hinzufügen wird ein Zeichenmodus mit Koordinatenleiste aktiviert:
+
+- **Insert** setzt den Koordinaten-Ursprung an die aktuelle Cursorposition (dX/dY werden auf 0 gesetzt).
+- **X** oder **Y** springt direkt in das jeweilige Koordinaten-Eingabefeld.
+- **Enter** übernimmt die Eingabe und setzt den nächsten Punkt exakt.
+- **L** öffnet die Längeneingabe für den aktuellen Segmentabschnitt.
+- **Esc** oder Rechtsklick bricht den laufenden Zeichenvorgang ab.
+
+### Rückgängig / Wiederholen
+
+- **Ctrl+Z**: Rückgängig
+- **Ctrl+Y**: Wiederholen
 
 ---
 
 ## Einstellungen (Zahnrad-Icon)
 
-Über das Zahnrad-Icon oben können geöffnet werden:
-- **Bewehrungsparameter** – Allgemeine Parameter für alle Bauteile
-- **Bauteil-Bewehrungsparameter** – Parameter für das aktuelle Bauteil (Betondeckung, Orientierung, Korngrösse)
+Über das Zahnrad-Menü stehen folgende Dialoge zur Verfügung:
+
+- **Allgemeine Bewehrungsparameter**
+- **Bauteil-Bewehrungsparameter**
+- **Einheiten**
+
+![Screenshot: Zahnrad Bauteil-Bewehrungsparameter](screenshots/06_zahnrad_bauteil_bewehrungsparameter.png)
+![Screenshot: Einstellungen Einheiten](screenshots/06_settings_einheiten.png)
 
 ---
 

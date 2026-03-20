@@ -3,50 +3,61 @@
 Im Tab **„Ausdruckprotokoll"** wird der PDF-Bericht für die Schutzraumbemessung erzeugt.
 
 ![Screenshot: Tab Ausdruckprotokoll](screenshots/07_ausdruckprotokoll.png)
-<!-- TODO: Screenshot einfügen -->
 
 ---
 
-## Berichtstyp wählen
+## Protokollumfang und Darstellung
 
 | Option | Beschreibung |
 |---|---|
-| **Vollständiges Ausdruckprotokoll** | Kompletter Bericht mit allen Kapiteln (Standard) |
-| **Kurzfassung** | Kompakte Version ohne Lastfälle/Kapitel 2 |
+| **Vollständiges Ausdruckprotokoll** | Vollversion mit allen Berichtsteilen |
+| **Kurzfassung** | Kompakte Version mit reduziertem Umfang |
 
-### Darstellungsart (nur bei vollständigem Protokoll)
+### Darstellungsart Schnittgrössen (nur Vollversion)
 
 | Option | Beschreibung |
 |---|---|
-| **Farbdarstellung** | Farbcodierte Diagramme (Standard) |
-| **Mit Isolinien** | Darstellung mit Konturlinien |
+| **Isoflächen** | Flächenhafte Farbdarstellung (Standard) |
+| **Isolinien** | Darstellung mit Konturlinien |
+
+> **Hinweis:** Bei **Kurzfassung** wird die Auswahl **Darstellungsart Schnittgrössen** ausgeblendet.
 
 ---
 
 ## Kontaktdaten (linke Seite)
 
-Folgende Angaben müssen ausgefüllt werden (Pflichtfelder):
+Die Kontaktdaten werden für vier Rollen erfasst:
 
 | Rolle | Felder |
 |---|---|
-| **Bauherr** | Name, Strasse, PLZ/Ort |
-| **Architekt** | Name, Strasse, PLZ/Ort |
-| **Ingenieur** | Name, Strasse, PLZ/Ort |
-| **Prüfingenieur** | Name, Strasse, PLZ/Ort |
+| **Bauherr** | Name, Strasse, PLZ/Ort, E-Mail, Telefon |
+| **Architekt** | Name, Strasse, PLZ/Ort, E-Mail, Telefon |
+| **Ingenieur** | Name, Strasse, PLZ/Ort, E-Mail, Telefon |
+| **Prüfingenieur** | Name, Strasse, PLZ/Ort, E-Mail, Telefon |
+
+Pflichtfelder für die PDF-Erzeugung sind je Rolle:
+
+- **Name**
+- **Strasse**
+- **PLZ/Ort**
+
+E-Mail und Telefon sind optional.
 
 Die Kontaktdaten werden automatisch gespeichert und beim nächsten Öffnen wieder geladen.
-
-> **Hinweis:** Alle Felder müssen ausgefüllt sein, bevor das PDF erzeugt werden kann. Leere Felder werden rot markiert.
 
 ---
 
 ## PDF erzeugen
 
-1. Auf **„Ausdruckprotokoll erzeugen"** klicken (oder den Status-Kreis).
-2. **Speicherort wählen** – ein Dateidialog öffnet sich.
-   - Vorgeschlagener Dateiname: `{Projektname} Schutzraumbemessung.pdf`
-3. Die Erzeugung läuft – ein Fortschrittsdialog zeigt den Status.
-4. Nach Abschluss erscheint eine **Erfolgsmeldung** mit dem Speicherpfad.
+1. Protokollumfang (und ggf. Darstellungsart) wählen.
+2. Pflichtfelder in den Kontaktdaten ausfüllen.
+3. Auf **„Ausdruckprotokoll erzeugen"** klicken (oder den Status-Kreis).
+4. **Speicherort wählen** – ein Dateidialog öffnet sich.
+   - Vorgeschlagener Dateiname: `{Projektname} TWKDok.pdf`
+   - Bei Englisch wird `_en` ergänzt.
+   - Bei Kurzfassung wird `Kurzversion` ergänzt.
+5. Die Erzeugung läuft; ein Fortschrittsdialog zeigt den Stand.
+6. Nach Abschluss erscheint eine Erfolgsmeldung mit dem Speicherpfad.
 
 ### Status-Anzeige
 
@@ -54,7 +65,7 @@ Die Kontaktdaten werden automatisch gespeichert und beim nächsten Öffnen wiede
 |---|---|
 | 🔵 Blauer Kreis | Bereit – PDF kann erzeugt werden |
 | 🟢 Grüner Kreis (✓) | PDF erfolgreich erzeugt |
-| 🔴 Roter Kreis (✗) | Fehler beim Erzeugen |
+| 🔴 Roter Kreis (✗) | Fehler beim Erzeugen (erneuter Versuch möglich) |
 
 ---
 
@@ -83,4 +94,4 @@ Die Kontaktdaten werden automatisch gespeichert und beim nächsten Öffnen wiede
 - Schubbemessung: Skizzen, Schubkraftdiagramme, Ausnutzung, Nachweistabellen
 
 ![Screenshot: PDF-Beispiel](screenshots/07_pdf_beispiel.png)
-<!-- TODO: Screenshot einfügen -->
+
